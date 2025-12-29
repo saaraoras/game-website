@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Untitled Game</title>
+  <meta name="description" content="Untitled Game — a narrative-driven fantasy action RPG where forbidden magic returns." />
+
+  <!-- 3D: model-viewer -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
+  <!-- Your project files -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="./js/main.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav-container">
+      <a class="brand" href="#hero" aria-label="Untitled Game Home">
+        <svg class="brand-mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="pmMark" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#2EF2A2"/>
+              <stop offset=".6" stop-color="#22D3EE"/>
+              <stop offset="1" stop-color="#0EA5E9"/>
+            </linearGradient>
+          </defs>
+          <circle cx="32" cy="32" r="26" fill="none" stroke="url(#pmMark)" stroke-width="3"/>
+          <path d="M32 50c0-10-3-16-2-23 1-7 5-9 2-11" fill="none" stroke="url(#pmMark)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M31 35c-7-3-11-7-14-11 1 10 7 19 15 18-.5-2.5-1-5.5-1-7z" fill="url(#pmMark)" opacity=".9"/>
+          <path d="M33 35c7-3 11-7 14-11-1 10-7 19-15 18 .5-2.5 1-5.5 1-7z" fill="url(#pmMark)" opacity=".9"/>
+        </svg>
+        <span class="brand-title">Untitled Game</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" aria-label="Primary">
+        <a href="#hero">Home</a>
+        <a href="#world">World</a>
+        <a href="#mages">Mages</a>
+        <a href="#gameplay">Gameplay</a>
+        <a href="#media">Media</a>
+        <a href="#dev">Dev Blog</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-panel reveal">
+          <div class="kicker">... studio presents</div>
+          <h1 class="hero-title"><span>UNTITLED</span><span>GAME</span></h1>
+          <p class="hero-copy">
+            A narrative-driven fantasy action RPG set in a continent where magic was outlawed… until you awaken it again.
+            Shape your own grimoire, forge pacts with living spells, and decide whether to restore balance or seize arcane dominion.
+          </p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#gameplay">Explore Gameplay</a>
+            <button class="btn btn-ghost" type="button" data-open="teaser">Watch Teaser</button>
+          </div>
+          <ul class="chips" aria-label="Key pillars">
+            <li>Action RPG</li><li>Living Grimoire</li><li>Faction Consequence</li><li>Dark Nature Magic</li>
+          </ul>
+        </div>
+
+        <div class="hero-art reveal" id="heroOrb" aria-hidden="true">
+          <span class="hero-nebula"></span>
+          <span class="hero-rays"></span>
+
+          <img class="hero-fallback" id="fallbackImg" src="./assets/images/character.png" alt="" />
+          <div class="model-status" id="modelStatus">Loading 3D…</div>
+
+          <model-viewer
+            class="hero-model"
+            id="heroModel"
+            src="./assets/models/character.glb"
+            camera-controls
+            auto-rotate
+            auto-rotate-delay="0"
+            rotation-per-second="12deg"
+            autoplay
+            interaction-prompt="none"
+            shadow-intensity="0"
+            environment-image="neutral"
+            exposure="1.25"
+            camera-orbit="35deg 75deg 105%"
+            camera-target="0m 1m 0m"
+            field-of-view="30deg"
+          >
+            <div slot="progress-bar"></div>
+          </model-viewer>
+
+          <span class="hero-ring hero-ring--outer"></span>
+          <span class="hero-ring hero-ring--inner"></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="world" class="section">
+      <div class="container">
+        <header class="section-head center reveal">
+          <h2 class="section-title">A World Unbound by Magic</h2>
+          <p class="section-lede">Eldrael outlawed spellcraft after the Shattering fractured the ley-lines. Now the wild weave returns.</p>
+        </header>
+        <div class="grid-2">
+          <article class="card reveal"><h3>The Shattering</h3><p>A sky-split event that broke the ley network and left “dead zones” where nature twists into new laws.</p></article>
+          <article class="card reveal"><h3>Conflict & Tone</h3><p>Power is survival—and evidence. Every cast can save you, or mark you for the Crown.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="mages" class="section section-alt">
+      <div class="container">
+        <header class="section-head center reveal">
+          <h2 class="section-title">Circle of the Awakened</h2>
+          <p class="section-lede">Character cards + traits. Replace with portraits later.</p>
+        </header>
+        <div class="grid-3">
+          <article class="card reveal"><h3>Lyra Vael</h3><p class="muted">Runesmith Savant / Ward Specialist</p></article>
+          <article class="card reveal"><h3>Corin Ashmark</h3><p class="muted">Pyromancer Outcast / Frontline Caster</p></article>
+          <article class="card reveal"><h3>Serin Thorne</h3><p class="muted">Chronomancer / Control & Support</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="gameplay" class="section">
+      <div class="container">
+        <header class="section-head center reveal">
+          <h2 class="section-title">Gameplay</h2>
+          <p class="section-lede">Feature boxes that scale with your project.</p>
+        </header>
+        <div class="grid-2">
+          <article class="card reveal"><h3>Arcane Tactical Combat</h3><p>Real-time with tactical pause. Position, chain reactions, punish openings.</p></article>
+          <article class="card reveal"><h3>Living Grimoire</h3><p>Fuse schools, accept forbidden augments, define signature spells.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="media" class="section section-alt">
+      <div class="container">
+        <header class="section-head center reveal">
+          <h2 class="section-title">Media</h2>
+          <p class="section-lede">Gallery tiles and a teaser modal placeholder.</p>
+        </header>
+        <div class="gallery">
+          <figure class="card tile reveal"><div class="thumb t1"></div><figcaption class="cap">Academy tower above a ley-lit canopy.</figcaption></figure>
+          <figure class="card tile reveal"><div class="thumb t2"></div><figcaption class="cap">Living grimoire UI — glyphs that react to your build.</figcaption></figure>
+          <figure class="card tile reveal"><div class="thumb t3"></div><figcaption class="cap">Ruin corridors where the Shattering still bleeds through stone.</figcaption></figure>
+        </div>
+        <div class="card teaser reveal">
+          <div><h3>Teaser</h3><p class="muted">Add a trailer link later. For now, a cinematic placeholder.</p></div>
+          <button class="btn btn-primary" type="button" data-open="teaser">Open Teaser</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="dev" class="section">
+      <div class="container">
+        <header class="section-head center reveal">
+          <h2 class="section-title">Dev Blog</h2>
+          <p class="section-lede">Short entries now, full posts later.</p>
+        </header>
+        <div class="grid-2">
+          <article class="card reveal"><h3>Core Spellcasting Loop Online</h3><p>First combat slice is playable. Next: readability, impact feedback, timing.</p></article>
+          <article class="card reveal"><h3>Bioluminescent Arcana Palette</h3><p>Deep teal shadows, cyan glow, emerald runes.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <header class="section-head center reveal">
+          <h2 class="section-title">Contact</h2>
+          <p class="section-lede">Add your studio name and email.</p>
+        </header>
+        <div class="card contact-card reveal">
+          <div class="contact-grid">
+            <div class="contact-item">
+              <div class="contact-label">Studio</div>
+              <div class="contact-value">YOUR STUDIO NAME</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-label">Email</div>
+              <a class="contact-link" href="mailto:you@example.com">you@example.com</a>
+            </div>
+            <div class="contact-item">
+              <div class="contact-label">Press Kit</div>
+              <div class="contact-value soft">Coming soon</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-label">Community</div>
+              <div class="contact-value soft">Discord coming soon</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Teaser modal -->
+  <div class="modal" id="teaserModal" aria-hidden="true" role="dialog" aria-label="Teaser modal">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel" role="document">
+      <div class="modal-top">
+        <div class="modal-title">Teaser</div>
+        <button class="modal-close" type="button" data-close>✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="video-placeholder">Teaser coming soon.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
