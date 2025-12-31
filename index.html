@@ -6,32 +6,29 @@
   <title>Untitled Game</title>
   <meta name="description" content="Untitled Game — a narrative-driven fantasy action RPG where forbidden magic returns." />
 
-  <!-- 3D: model-viewer -->
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
-
-  <!-- Your project files -->
   <link rel="stylesheet" href="./css/style.css" />
   <script src="./js/main.js" defer></script>
 </head>
 
 <body>
+  <!-- ===================== NAV ===================== -->
   <header class="site-header">
     <div class="container nav-container">
       <a class="brand" href="#hero" aria-label="Untitled Game Home">
         <svg class="brand-mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
-            <linearGradient id="pmMark" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#2EF2A2"/>
+            <linearGradient id="markG" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#34D399"/>
               <stop offset=".6" stop-color="#22D3EE"/>
               <stop offset="1" stop-color="#0EA5E9"/>
             </linearGradient>
           </defs>
-          <circle cx="32" cy="32" r="26" fill="none" stroke="url(#pmMark)" stroke-width="3"/>
-          <path d="M32 50c0-10-3-16-2-23 1-7 5-9 2-11" fill="none" stroke="url(#pmMark)" stroke-width="3" stroke-linecap="round"/>
-          <path d="M31 35c-7-3-11-7-14-11 1 10 7 19 15 18-.5-2.5-1-5.5-1-7z" fill="url(#pmMark)" opacity=".9"/>
-          <path d="M33 35c7-3 11-7 14-11-1 10-7 19-15 18 .5-2.5 1-5.5 1-7z" fill="url(#pmMark)" opacity=".9"/>
+          <circle cx="32" cy="32" r="26" fill="none" stroke="url(#markG)" stroke-width="3"/>
+          <path d="M32 50c0-10-3-16-2-23 1-7 5-9 2-11" fill="none" stroke="url(#markG)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M31 35c-7-3-11-7-14-11 1 10 7 19 15 18-.5-2.5-1-5.5-1-7z" fill="url(#markG)" opacity=".9"/>
+          <path d="M33 35c7-3 11-7 14-11-1 10-7 19-15 18 .5-2.5 1-5.5 1-7z" fill="url(#markG)" opacity=".9"/>
         </svg>
+
         <span class="brand-title">Untitled Game</span>
       </a>
 
@@ -52,135 +49,268 @@
   </header>
 
   <main>
+    <!-- ===================== HERO ===================== -->
     <section id="hero" class="hero">
       <div class="container hero-inner">
-        <div class="hero-panel reveal">
-          <div class="kicker">... studio presents</div>
-          <h1 class="hero-title"><span>UNTITLED</span><span>GAME</span></h1>
+        <div class="hero-panel">
+          <div class="kicker">… STUDIO PRESENTS</div>
+
+          <h1 class="hero-title">
+            <span>UNTITLED</span>
+            <span>GAME</span>
+          </h1>
+
           <p class="hero-copy">
-            A narrative-driven fantasy action RPG set in a continent where magic was outlawed… until you awaken it again.
-            Shape your own grimoire, forge pacts with living spells, and decide whether to restore balance or seize arcane dominion.
+            A narrative-driven fantasy action RPG set in a continent where magic was outlawed…
+            until you awaken it again. Shape your own grimoire, forge pacts with living spells,
+            and decide whether to restore balance or seize arcane dominion.
           </p>
+
           <div class="cta">
             <a class="btn btn-primary" href="#gameplay">Explore Gameplay</a>
-            <button class="btn btn-ghost" type="button" data-open="teaser">Watch Teaser</button>
+            <a class="btn btn-ghost" href="#media">View Media</a>
           </div>
+
           <ul class="chips" aria-label="Key pillars">
-            <li>Action RPG</li><li>Living Grimoire</li><li>Faction Consequence</li><li>Dark Nature Magic</li>
+            <li>Action RPG</li>
+            <li>Living Grimoire</li>
+            <li>Faction Consequence</li>
+            <li>Dark Nature Magic</li>
           </ul>
         </div>
 
-        <div class="hero-art reveal" id="heroOrb" aria-hidden="true">
+        <!-- ===================== ORB (Elf Druid) ===================== -->
+        <div class="hero-art" aria-hidden="true">
           <span class="hero-nebula"></span>
           <span class="hero-rays"></span>
 
-          <img class="hero-fallback" id="fallbackImg" src="./assets/images/character.png" alt="" />
-          <div class="model-status" id="modelStatus">Loading 3D…</div>
+          <div class="orb-figure" aria-hidden="true">
+            <svg class="elf-druid" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="dEdge" x1="120" y1="120" x2="420" y2="440" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#A7F3D0" stop-opacity="0.85"/>
+                  <stop offset="0.45" stop-color="#34D399" stop-opacity="0.60"/>
+                  <stop offset="1" stop-color="#22D3EE" stop-opacity="0.45"/>
+                </linearGradient>
 
-          <model-viewer
-            class="hero-model"
-            id="heroModel"
-            src="./assets/models/character.glb"
-            camera-controls
-            auto-rotate
-            auto-rotate-delay="0"
-            rotation-per-second="12deg"
-            autoplay
-            interaction-prompt="none"
-            shadow-intensity="0"
-            environment-image="neutral"
-            exposure="1.25"
-            camera-orbit="35deg 75deg 105%"
-            camera-target="0m 1m 0m"
-            field-of-view="30deg"
-          >
-            <div slot="progress-bar"></div>
-          </model-viewer>
+                <linearGradient id="dCloak" x1="200" y1="140" x2="360" y2="460" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#061312"/>
+                  <stop offset="0.6" stop-color="#030a0a"/>
+                  <stop offset="1" stop-color="#020606"/>
+                </linearGradient>
+
+                <radialGradient id="dGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(292 240) rotate(90) scale(150)">
+                  <stop offset="0" stop-color="#22D3EE" stop-opacity="0.18"/>
+                  <stop offset="0.45" stop-color="#34D399" stop-opacity="0.16"/>
+                  <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+                </radialGradient>
+
+                <filter id="dSoft" x="-40%" y="-40%" width="180%" height="180%">
+                  <feGaussianBlur stdDeviation="2.6" result="b"/>
+                  <feMerge>
+                    <feMergeNode in="b"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+
+                <filter id="dGlowF" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="7" result="blur"/>
+                  <feColorMatrix in="blur" type="matrix"
+                    values="1 0 0 0 0
+                            0 1 0 0 0
+                            0 0 1 0 0
+                            0 0 0 .75 0" result="glow"/>
+                  <feMerge>
+                    <feMergeNode in="glow"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <!-- ambient glow -->
+              <circle cx="292" cy="260" r="210" fill="url(#dGlow)" opacity="0.95"/>
+
+              <!-- staff -->
+              <g filter="url(#dGlowF)">
+                <path d="M388 140 C372 150 362 170 362 194 L342 456"
+                      fill="none" stroke="url(#dEdge)" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+                <circle cx="376" cy="170" r="18" fill="none" stroke="#A7F3D0" stroke-width="3" opacity="0.65"/>
+                <circle cx="376" cy="170" r="8" fill="#22D3EE" opacity="0.25"/>
+                <path d="M372 144 C354 150 342 168 338 188
+                         C360 182 378 172 390 156
+                         C396 148 390 142 372 144 Z"
+                      fill="#34D399" opacity="0.45"/>
+              </g>
+
+              <!-- elf druid silhouette -->
+              <g filter="url(#dSoft)">
+                <path d="M200 300
+                         C178 370 206 452 286 476
+                         C372 502 450 446 438 360
+                         C430 306 394 274 360 258
+                         C326 242 270 246 240 264
+                         C220 276 206 286 200 300 Z"
+                      fill="url(#dCloak)"/>
+
+                <path d="M232 270
+                         C246 206 292 174 336 186
+                         C380 198 402 246 392 296
+                         C382 346 350 374 322 388
+                         C286 368 252 330 232 270 Z"
+                      fill="url(#dCloak)"/>
+
+                <path d="M276 290
+                         C290 258 312 240 336 244
+                         C362 250 374 280 368 312
+                         C362 344 344 364 326 374
+                         C304 360 290 332 276 290 Z"
+                      fill="#010404" opacity="0.96"/>
+
+                <!-- elf ears -->
+                <path d="M270 300
+                         C248 296 232 282 222 264
+                         C232 296 246 322 268 332 Z"
+                      fill="#04110f" opacity="0.95"/>
+                <path d="M380 300
+                         C402 296 418 282 428 264
+                         C418 296 404 322 382 332 Z"
+                      fill="#04110f" opacity="0.95"/>
+
+                <!-- leaf crown -->
+                <g filter="url(#dGlowF)" opacity="0.95">
+                  <path d="M270 226
+                           C252 230 240 244 236 262
+                           C258 258 276 250 286 236
+                           C292 228 286 224 270 226 Z"
+                        fill="#34D399" opacity="0.55"/>
+                  <path d="M314 214
+                           C292 218 276 238 270 262
+                           C296 256 322 242 336 224
+                           C342 216 334 212 314 214 Z"
+                        fill="#A7F3D0" opacity="0.40"/>
+                  <path d="M362 226
+                           C344 226 326 242 320 262
+                           C346 258 370 248 382 236
+                           C388 228 382 224 362 226 Z"
+                        fill="#22D3EE" opacity="0.35"/>
+                </g>
+
+                <!-- eyes -->
+                <g filter="url(#dGlowF)">
+                  <path d="M300 302 C310 296 320 296 330 302"
+                        stroke="#A7F3D0" stroke-width="3.4" stroke-linecap="round" opacity="0.55"/>
+                  <path d="M344 302 C354 296 364 296 374 302"
+                        stroke="#22D3EE" stroke-width="3.4" stroke-linecap="round" opacity="0.45"/>
+                </g>
+              </g>
+            </svg>
+          </div>
 
           <span class="hero-ring hero-ring--outer"></span>
           <span class="hero-ring hero-ring--inner"></span>
+          <span class="hero-runes"></span>
+          <span class="hero-particles"></span>
         </div>
       </div>
     </section>
 
+    <!-- ===================== WORLD ===================== -->
     <section id="world" class="section">
       <div class="container">
-        <header class="section-head center reveal">
+        <header class="section-head center">
           <h2 class="section-title">A World Unbound by Magic</h2>
-          <p class="section-lede">Eldrael outlawed spellcraft after the Shattering fractured the ley-lines. Now the wild weave returns.</p>
+          <p class="section-lede">
+            Eldrael outlawed spellcraft after the Shattering fractured the ley-lines. Now the wild weave returns—through roots, ruins, and things that learned to hunt in the dark.
+          </p>
         </header>
+
         <div class="grid-2">
-          <article class="card reveal"><h3>The Shattering</h3><p>A sky-split event that broke the ley network and left “dead zones” where nature twists into new laws.</p></article>
-          <article class="card reveal"><h3>Conflict & Tone</h3><p>Power is survival—and evidence. Every cast can save you, or mark you for the Crown.</p></article>
+          <article class="card">
+            <h3>The Shattering</h3>
+            <p>A sky-split event that broke the ley network and left “dead zones” where nature twists into new laws.</p>
+          </article>
+          <article class="card">
+            <h3>Conflict & Tone</h3>
+            <p>Power is survival—and evidence. Every cast can save you, or mark you for the Crown.</p>
+          </article>
         </div>
       </div>
     </section>
 
+    <!-- ===================== MAGES ===================== -->
     <section id="mages" class="section section-alt">
       <div class="container">
-        <header class="section-head center reveal">
+        <header class="section-head center">
           <h2 class="section-title">Circle of the Awakened</h2>
           <p class="section-lede">Character cards + traits. Replace with portraits later.</p>
         </header>
+
         <div class="grid-3">
-          <article class="card reveal"><h3>Lyra Vael</h3><p class="muted">Runesmith Savant / Ward Specialist</p></article>
-          <article class="card reveal"><h3>Corin Ashmark</h3><p class="muted">Pyromancer Outcast / Frontline Caster</p></article>
-          <article class="card reveal"><h3>Serin Thorne</h3><p class="muted">Chronomancer / Control & Support</p></article>
+          <article class="card"><h3>Lyra Vael</h3><p class="muted">Runesmith Savant / Ward Specialist</p></article>
+          <article class="card"><h3>Corin Ashmark</h3><p class="muted">Pyromancer Outcast / Frontline Caster</p></article>
+          <article class="card"><h3>Serin Thorne</h3><p class="muted">Chronomancer / Control & Support</p></article>
         </div>
       </div>
     </section>
 
+    <!-- ===================== GAMEPLAY ===================== -->
     <section id="gameplay" class="section">
       <div class="container">
-        <header class="section-head center reveal">
+        <header class="section-head center">
           <h2 class="section-title">Gameplay</h2>
           <p class="section-lede">Feature boxes that scale with your project.</p>
         </header>
+
         <div class="grid-2">
-          <article class="card reveal"><h3>Arcane Tactical Combat</h3><p>Real-time with tactical pause. Position, chain reactions, punish openings.</p></article>
-          <article class="card reveal"><h3>Living Grimoire</h3><p>Fuse schools, accept forbidden augments, define signature spells.</p></article>
+          <article class="card"><h3>Arcane Tactical Combat</h3><p>Real-time with tactical pause. Position, chain reactions, and punish openings.</p></article>
+          <article class="card"><h3>Living Grimoire</h3><p>Fuse schools, accept forbidden augments, and define signature spells.</p></article>
+          <article class="card"><h3>Circle Loyalty</h3><p>Companions push back. Their oaths can amplify your magic—or fracture the party.</p></article>
+          <article class="card"><h3>Academy Hub</h3><p>Return to your reclaimed tower: craft rituals, study relics, map ley fractures.</p></article>
         </div>
       </div>
     </section>
 
+    <!-- ===================== MEDIA ===================== -->
     <section id="media" class="section section-alt">
       <div class="container">
-        <header class="section-head center reveal">
+        <header class="section-head center">
           <h2 class="section-title">Media</h2>
-          <p class="section-lede">Gallery tiles and a teaser modal placeholder.</p>
+          <p class="section-lede">Concept art, environment previews, and UI mockups.</p>
         </header>
+
         <div class="gallery">
-          <figure class="card tile reveal"><div class="thumb t1"></div><figcaption class="cap">Academy tower above a ley-lit canopy.</figcaption></figure>
-          <figure class="card tile reveal"><div class="thumb t2"></div><figcaption class="cap">Living grimoire UI — glyphs that react to your build.</figcaption></figure>
-          <figure class="card tile reveal"><div class="thumb t3"></div><figcaption class="cap">Ruin corridors where the Shattering still bleeds through stone.</figcaption></figure>
-        </div>
-        <div class="card teaser reveal">
-          <div><h3>Teaser</h3><p class="muted">Add a trailer link later. For now, a cinematic placeholder.</p></div>
-          <button class="btn btn-primary" type="button" data-open="teaser">Open Teaser</button>
+          <figure class="card tile"><div class="thumb t1"></div><figcaption class="cap">Academy tower above a ley-lit canopy.</figcaption></figure>
+          <figure class="card tile"><div class="thumb t2"></div><figcaption class="cap">Living grimoire UI — glyphs that react to your build.</figcaption></figure>
+          <figure class="card tile"><div class="thumb t3"></div><figcaption class="cap">Ruin corridors where the Shattering still bleeds through stone.</figcaption></figure>
         </div>
       </div>
     </section>
 
+    <!-- ===================== DEV ===================== -->
     <section id="dev" class="section">
       <div class="container">
-        <header class="section-head center reveal">
+        <header class="section-head center">
           <h2 class="section-title">Dev Blog</h2>
           <p class="section-lede">Short entries now, full posts later.</p>
         </header>
+
         <div class="grid-2">
-          <article class="card reveal"><h3>Core Spellcasting Loop Online</h3><p>First combat slice is playable. Next: readability, impact feedback, timing.</p></article>
-          <article class="card reveal"><h3>Bioluminescent Arcana Palette</h3><p>Deep teal shadows, cyan glow, emerald runes.</p></article>
+          <article class="card"><h3>Core Loop</h3><p>Combat slice playable; next: VFX timing and reaction readability.</p></article>
+          <article class="card"><h3>Art Direction</h3><p>Deep teal shadows, cyan glow, emerald runes.</p></article>
         </div>
       </div>
     </section>
 
+    <!-- ===================== CONTACT ===================== -->
     <section id="contact" class="section section-alt">
       <div class="container">
-        <header class="section-head center reveal">
+        <header class="section-head center">
           <h2 class="section-title">Contact</h2>
           <p class="section-lede">Add your studio name and email.</p>
         </header>
-        <div class="card contact-card reveal">
+
+        <div class="card contact-card">
           <div class="contact-grid">
             <div class="contact-item">
               <div class="contact-label">Studio</div>
@@ -202,20 +332,12 @@
         </div>
       </div>
     </section>
-  </main>
 
-  <!-- Teaser modal -->
-  <div class="modal" id="teaserModal" aria-hidden="true" role="dialog" aria-label="Teaser modal">
-    <div class="modal-backdrop" data-close></div>
-    <div class="modal-panel" role="document">
-      <div class="modal-top">
-        <div class="modal-title">Teaser</div>
-        <button class="modal-close" type="button" data-close>✕</button>
+    <footer class="site-footer">
+      <div class="container footer-bottom">
+        <p>© <span id="year"></span> Untitled Game.</p>
       </div>
-      <div class="modal-body">
-        <div class="video-placeholder">Teaser coming soon.</div>
-      </div>
-    </div>
-  </div>
+    </footer>
+  </main>
 </body>
 </html>
